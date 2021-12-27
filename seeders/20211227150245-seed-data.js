@@ -1,5 +1,3 @@
-'use strict';
-
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     const userList = [
@@ -16,7 +14,7 @@ module.exports = {
         updated_at: new Date(),
       },
     ];
-    const [ userOne, userTwo ] = await queryInterface.bulkInsert('users', userList, { returning: true });
+    const [userOne, userTwo] = await queryInterface.bulkInsert('users', userList, { returning: true });
 
     // must stringify js object to insert as json else error
     const gameList = [
@@ -28,7 +26,7 @@ module.exports = {
         updated_at: new Date(),
       },
     ];
-    const [ game ] = await queryInterface.bulkInsert('games', gameList, { returning: true });
+    const [game] = await queryInterface.bulkInsert('games', gameList, { returning: true });
 
     const gameUsersData = [
       {

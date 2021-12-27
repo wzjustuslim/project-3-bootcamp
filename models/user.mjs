@@ -22,7 +22,7 @@ export default function initUserModel(sequelize, DataTypes) {
       allowNull: false,
       type: DataTypes.DATE,
     },
-  }, { 
-    underscored: true, 
+  }, {
+    underscored: true,
   });
 }
