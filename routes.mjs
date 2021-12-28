@@ -22,7 +22,7 @@ export default function bindRoutes(app) {
   // accept a request to delete a user
   app.delete('/users/:id', UsersController.destroy);
 
-  // render a list of games
+  // render a list of games / mainpage
   app.get('/games/', GamesController.index);
   // render a form to create a game
   app.get('/games/create', GamesController.createForm);
