@@ -18,8 +18,11 @@
   },
   "homepage": "https://github.com/wzjustuslim/project-3-bootcamp#readme",
   "dependencies": {
+    "cookie-parser": "^1.4.6",
     "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
     "express": "^4.17.2",
+    "method-override": "^3.0.0",
     "pg": "^8.7.1",
     "pq": "^0.0.3",
     "sequelize": "^7.0.0-alpha.2"
