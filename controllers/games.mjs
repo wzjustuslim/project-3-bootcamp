@@ -9,9 +9,20 @@ export default function initGamesController(db) {
     res.send('createForm');
   };
 
-  const create = (req, res) => {
-    console.log('create');
-    res.send('create');
+  const create = async (req, res) => {
+    const newGame = {
+      gameState: [],
+    };
+    for (let i = 0; i < 7; i += 1) {
+      newGame.gameState.push([]);
+    }
+
+    try {
+      const game = await db.Game.create(newGame);
+      res.send(game);
+    } catch (err) {
+      res.status(500).send(err);
+    }
   };
 
   const show = (req, res) => {

@@ -1,3 +1,32 @@
 body {
   background-color: paleturquoise;
 }
+
+h1 {
+  text-align: center;
+}
+
+#board {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: silver;
+  max-width: 640px;
+  height: 480px;
+  margin: auto;
+}
+
+.col {
+  display: flex;
+  flex-flow: column-reverse;
+  justify-content: space-evenly;
+  border: none;
+  width: 50px;
+  height: 100%;
+}
+
+.row {
+  background-color: whitesmoke;
+  width: 100%;
+  height: 50px;
+  border-radius: 50%;
+}
