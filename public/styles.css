@@ -10,7 +10,7 @@ h1 {
   display: flex;
   justify-content: space-evenly;
   background-color: silver;
-  max-width: 640px;
+  width: 640px;
   height: 480px;
   margin: auto;
 }
@@ -29,4 +29,20 @@ h1 {
   width: 100%;
   height: 50px;
   border-radius: 50%;
+}
+
+.red {
+  background-color: red;
+}
+
+.blue {
+  background-color: blue;
+}
+
+#statusbox {
+  display: flex;
+  justify-content: space-between;
+  width: 640px;
+  margin: auto;
+  padding: 16px;
 }

@@ -33,7 +33,7 @@ export default function bindRoutes(app) {
   // render a form to edit a game
   app.get('/games/:id/edit', GamesController.edit);
   // accept a request to update a game
-  app.put('/games/:id', GamesController.update);
+  app.put('/games/:id/:col', GamesController.update);
   // accept a request to delete a game
   app.delete('/games/:id', GamesController.destroy);
 }

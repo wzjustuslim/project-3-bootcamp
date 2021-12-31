@@ -11,7 +11,7 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 app.use(express.static('public'));
-app.use(express.json());
+// app.use(express.json());
 
 bindRoutes(app);
 
