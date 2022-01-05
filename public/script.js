@@ -1,8 +1,8 @@
-let currentGameId = null;
+$(window).on('load', () => {
+  $('#staticBackdrop').modal('show');
+});
 
-const createBtn = document.createElement('button');
-createBtn.innerText = 'Start game';
-document.body.appendChild(createBtn);
+let currentGameId = null;
 
 const createGame = () => {
   axios.post('/games/create')
@@ -12,12 +12,49 @@ const createGame = () => {
       console.error('error: ', err);
     });
 };
-createBtn.addEventListener('click', createGame);
 
+// signup and login buttons //
+const createUser = () => {
+  const email = document.querySelector('#floatingInputSignup').value;
+  const password = document.querySelector('#floatingPasswordSignup').value;
+
+  axios.post('/users/create', { email, password })
+    .then((res) => {
+      if (res.data.id) {
+        $('#staticBackdrop').modal('hide');
+      }
+      createGame();
+    }).catch((err) => {
+      console.error(`error: ${err}`);
+    });
+};
+
+const signupBtn = document.querySelector('#signup-btn');
+signupBtn.addEventListener('click', createUser);
+
+const loginUser = () => {
+  const email = document.querySelector('#floatingInputLogin').value;
+  const password = document.querySelector('#floatingPasswordLogin').value;
+
+  axios.post('/users/login', { email, password })
+    .then((res) => {
+      if (res.data.id) {
+        $('#staticBackdrop').modal('hide');
+      }
+      createGame();
+    }).catch((err) => {
+      console.error(`error: ${err}`);
+    });
+};
+
+const loginBtn = document.querySelector('#login-btn');
+loginBtn.addEventListener('click', loginUser);
+
+// below is board //
 const board = document.querySelector('#board');
 for (let i = 0; i < 7; i += 1) {
   const col = document.createElement('div');
-  col.className = 'col';
+  col.className = 'column';
   col.id = `col-${i}`;
   board.appendChild(col);
   // eslint-disable-next-line no-loop-func
@@ -28,7 +65,7 @@ for (let i = 0; i < 7; i += 1) {
 
         for (let k = 0; k < 6; k += 1) {
           const row = document.createElement('div');
-          row.classList.add('row');
+          row.classList.add('slot');
 
           if (res.data.board[i][k] === 0) {
             row.classList.add('red');
@@ -52,7 +89,7 @@ for (let i = 0; i < 7; i += 1) {
 
   for (let j = 0; j < 6; j += 1) {
     const row = document.createElement('div');
-    row.className = 'row';
+    row.className = 'slot';
     row.id = `row-${j}`;
     col.appendChild(row);
   }

@@ -4,6 +4,7 @@ body {
 
 h1 {
   text-align: center;
+  padding: 12px;
 }
 
 #board {
@@ -15,7 +16,7 @@ h1 {
   margin: auto;
 }
 
-.col {
+.column {
   display: flex;
   flex-flow: column-reverse;
   justify-content: space-evenly;
@@ -24,7 +25,7 @@ h1 {
   height: 100%;
 }
 
-.row {
+.slot {
   background-color: whitesmoke;
   width: 100%;
   height: 50px;
@@ -44,5 +45,33 @@ h1 {
   justify-content: space-between;
   width: 640px;
   margin: auto;
-  padding: 16px;
+  padding: 16px 0px 16px 0px;
+}
+
+.nav-tabs {
+  background-color: lightgray;
+  border-bottom: 0px;
+}
+
+.nav-item {
+  flex-grow: 1;
+}
+
+.nav-link {
+  width: 100%;
+  padding: 16px 32px;
+}
+
+.nav-tabs .nav-link {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border: 0px;
+}
+
+.nav-link.active {
+  background-color: white;
+}
+
+.modal-body {
+  padding: 1px;
 }
